@@ -4,9 +4,9 @@
 extern "C" {
 #endif
 
-struct AbletonLink;
-struct AbletonLinkClock;
-struct AbletonLinkSessionState;
+typedef struct _AbletonLink AbletonLink;
+typedef struct _AbletonLinkClock AbletonLinkClock;
+typedef struct _AbletonLinkSessionState AbletonLinkSessionState;
 
 AbletonLink *ableton_link_new(double bpm);
 void ableton_link_enable(AbletonLink *link_ptr, bool bEnable);
