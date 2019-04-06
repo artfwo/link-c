@@ -1,5 +1,5 @@
 #include "ableton/Link.hpp"
-#include "link.h"
+#include "ableton_link.h"
 
 AbletonLink *
 ableton_link_new(double bpm)
