@@ -55,6 +55,13 @@ ableton_link_session_state_tempo(AbletonLinkSessionState *state_ptr)
     return state->tempo();
 }
 
+void
+ableton_link_session_state_set_tempo(AbletonLinkSessionState *state_ptr, double bpm, long at_time)
+{
+    ableton::Link::SessionState *state = reinterpret_cast<ableton::Link::SessionState*>(state_ptr);
+    state->setTempo(bpm, std::chrono::microseconds(at_time));
+}
+
 double
 ableton_link_session_state_beat_at_time(AbletonLinkSessionState *state_ptr, long time, double quantum)
 {

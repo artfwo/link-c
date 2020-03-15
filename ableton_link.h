@@ -17,6 +17,7 @@ void ableton_link_destroy(AbletonLink *link);
 long ableton_link_clock_micros(AbletonLinkClock *clock_ptr);
 
 double ableton_link_session_state_tempo(AbletonLinkSessionState *state);
+void ableton_link_session_state_set_tempo(AbletonLinkSessionState *state, double bpm, long at_time);
 double ableton_link_session_state_beat_at_time(AbletonLinkSessionState *state_ptr, long time, double quantum);
 void ableton_link_session_state_destroy(AbletonLinkSessionState *state);
 
