@@ -12,6 +12,7 @@ AbletonLink *ableton_link_new(double bpm);
 void ableton_link_enable(AbletonLink *link_ptr, bool bEnable);
 AbletonLinkClock *ableton_link_clock(AbletonLink *link_ptr);
 AbletonLinkSessionState *ableton_link_capture_audio_session_state(AbletonLink *link_ptr);
+void ableton_link_commit_audio_session_state(AbletonLink *link_ptr, AbletonLinkSessionState *state_ptr);
 AbletonLinkSessionState *ableton_link_capture_app_session_state(AbletonLink *link_ptr);
 void ableton_link_destroy(AbletonLink *link_ptr);
 

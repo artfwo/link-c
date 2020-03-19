@@ -34,6 +34,14 @@ ableton_link_capture_audio_session_state(AbletonLink *link_ptr)
     return reinterpret_cast<AbletonLinkSessionState*>(state_ptr);
 }
 
+void
+ableton_link_commit_audio_session_state(AbletonLink *link_ptr, AbletonLinkSessionState *state_ptr)
+{
+    ableton::Link *link = reinterpret_cast<ableton::Link*>(link_ptr);
+    ableton::Link::SessionState *state = reinterpret_cast<ableton::Link::SessionState*>(state_ptr);
+    link->commitAudioSessionState(*state);
+}
+
 AbletonLinkSessionState *
 ableton_link_capture_app_session_state(AbletonLink *link_ptr)
 {
