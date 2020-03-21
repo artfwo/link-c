@@ -10,85 +10,85 @@ ableton_link_new(double bpm)
 }
 
 void
-ableton_link_enable(AbletonLink *link_ptr, bool bEnable)
+ableton_link_enable(AbletonLink *link_ref, bool enable)
 {
-    ableton::Link *link = reinterpret_cast<ableton::Link*>(link_ptr);
+    ableton::Link *link = reinterpret_cast<ableton::Link*>(link_ref);
     link->enable(bEnable);
 }
 
 AbletonLinkClock *
-ableton_link_clock(AbletonLink *link_ptr)
+ableton_link_clock(AbletonLink *link_ref)
 {
-    ableton::Link *link = reinterpret_cast<ableton::Link*>(link_ptr);
+    ableton::Link *link = reinterpret_cast<ableton::Link*>(link_ref);
     ableton::Link::Clock clock = link->clock();
-    ableton::Link::Clock *clock_ptr = new ableton::Link::Clock(clock);
-    return reinterpret_cast<AbletonLinkClock*>(clock_ptr);
+    ableton::Link::Clock *clock_ref = new ableton::Link::Clock(clock);
+    return reinterpret_cast<AbletonLinkClock*>(clock_ref);
 }
 
 AbletonLinkSessionState *
-ableton_link_capture_audio_session_state(AbletonLink *link_ptr)
+ableton_link_capture_audio_session_state(AbletonLink *link_ref)
 {
-    ableton::Link *link = reinterpret_cast<ableton::Link*>(link_ptr);
+    ableton::Link *link = reinterpret_cast<ableton::Link*>(link_ref);
     ableton::Link::SessionState state = link->captureAudioSessionState();
-    ableton::Link::SessionState *state_ptr = new ableton::Link::SessionState(state);
-    return reinterpret_cast<AbletonLinkSessionState*>(state_ptr);
+    ableton::Link::SessionState *state_ref = new ableton::Link::SessionState(state);
+    return reinterpret_cast<AbletonLinkSessionState*>(state_ref);
 }
 
 void
-ableton_link_commit_audio_session_state(AbletonLink *link_ptr, AbletonLinkSessionState *state_ptr)
+ableton_link_commit_audio_session_state(AbletonLink *link_ref, AbletonLinkSessionState *state_ref)
 {
-    ableton::Link *link = reinterpret_cast<ableton::Link*>(link_ptr);
-    ableton::Link::SessionState *state = reinterpret_cast<ableton::Link::SessionState*>(state_ptr);
+    ableton::Link *link = reinterpret_cast<ableton::Link*>(link_ref);
+    ableton::Link::SessionState *state = reinterpret_cast<ableton::Link::SessionState*>(state_ref);
     link->commitAudioSessionState(*state);
 }
 
 AbletonLinkSessionState *
-ableton_link_capture_app_session_state(AbletonLink *link_ptr)
+ableton_link_capture_app_session_state(AbletonLink *link_ref)
 {
-    ableton::Link *link = reinterpret_cast<ableton::Link*>(link_ptr);
+    ableton::Link *link = reinterpret_cast<ableton::Link*>(link_ref);
     ableton::Link::SessionState state = link->captureAppSessionState();
-    ableton::Link::SessionState *state_ptr = new ableton::Link::SessionState(state);
-    return reinterpret_cast<AbletonLinkSessionState*>(state_ptr);
+    ableton::Link::SessionState *state_ref = new ableton::Link::SessionState(state);
+    return reinterpret_cast<AbletonLinkSessionState*>(state_ref);
 }
 
 void
-ableton_link_destroy(AbletonLink *link_ptr)
+ableton_link_destroy(AbletonLink *link_ref)
 {
-    ableton::Link *link = reinterpret_cast<ableton::Link*>(link_ptr);
+    ableton::Link *link = reinterpret_cast<ableton::Link*>(link_ref);
     delete link;
 }
 
 long
-ableton_link_clock_micros(AbletonLinkClock *clock_ptr)
+ableton_link_clock_micros(AbletonLinkClock *clock_ref)
 {
-    ableton::Link::Clock *clock = reinterpret_cast<ableton::Link::Clock*>(clock_ptr);
+    ableton::Link::Clock *clock = reinterpret_cast<ableton::Link::Clock*>(clock_ref);
     return clock->micros().count();
 }
 
 double
-ableton_link_session_state_tempo(AbletonLinkSessionState *state_ptr)
+ableton_link_session_state_tempo(AbletonLinkSessionState *state_ref)
 {
-    ableton::Link::SessionState *state = reinterpret_cast<ableton::Link::SessionState*>(state_ptr);
+    ableton::Link::SessionState *state = reinterpret_cast<ableton::Link::SessionState*>(state_ref);
     return state->tempo();
 }
 
 void
-ableton_link_session_state_set_tempo(AbletonLinkSessionState *state_ptr, double bpm, long at_time)
+ableton_link_session_state_set_tempo(AbletonLinkSessionState *state_ref, double bpm, long at_time)
 {
-    ableton::Link::SessionState *state = reinterpret_cast<ableton::Link::SessionState*>(state_ptr);
+    ableton::Link::SessionState *state = reinterpret_cast<ableton::Link::SessionState*>(state_ref);
     state->setTempo(bpm, std::chrono::microseconds(at_time));
 }
 
 double
-ableton_link_session_state_beat_at_time(AbletonLinkSessionState *state_ptr, long time, double quantum)
+ableton_link_session_state_beat_at_time(AbletonLinkSessionState *state_ref, long time, double quantum)
 {
-    ableton::Link::SessionState *state = reinterpret_cast<ableton::Link::SessionState*>(state_ptr);
+    ableton::Link::SessionState *state = reinterpret_cast<ableton::Link::SessionState*>(state_ref);
     return state->beatAtTime(std::chrono::microseconds(time), quantum);
 }
 
 void
-ableton_link_session_state_destroy(AbletonLinkSessionState *state_ptr)
+ableton_link_session_state_destroy(AbletonLinkSessionState *state_ref)
 {
-    ableton::Link::SessionState *state = reinterpret_cast<ableton::Link::SessionState*>(state_ptr);
+    ableton::Link::SessionState *state = reinterpret_cast<ableton::Link::SessionState*>(state_ref);
     delete state;
 }
