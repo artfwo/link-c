@@ -13,7 +13,7 @@ void
 ableton_link_enable(AbletonLink *link_ref, bool enable)
 {
     ableton::Link *link = reinterpret_cast<ableton::Link*>(link_ref);
-    link->enable(bEnable);
+    link->enable(enable);
 }
 
 AbletonLinkClock *
