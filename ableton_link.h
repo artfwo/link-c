@@ -23,6 +23,8 @@ uint64_t ableton_link_clock_micros(AbletonLinkClock *clock_ref);
 double ableton_link_session_state_tempo(AbletonLinkSessionState *state_ref);
 void ableton_link_session_state_set_tempo(AbletonLinkSessionState *state_ref, double bpm, uint64_t at_time);
 double ableton_link_session_state_beat_at_time(AbletonLinkSessionState *state_ref, uint64_t time, double quantum);
+void ableton_link_session_state_set_is_playing(AbletonLinkSessionState *state_ref, bool is_playing, uint64_t time);
+bool ableton_link_session_state_is_playing(AbletonLinkSessionState *state_ref);
 void ableton_link_session_state_destroy(AbletonLinkSessionState *state_ref);
 
 #ifdef __cplusplus

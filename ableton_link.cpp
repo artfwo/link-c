@@ -101,6 +101,20 @@ ableton_link_session_state_beat_at_time(AbletonLinkSessionState *state_ref, uint
 }
 
 void
+ableton_link_session_state_set_is_playing(AbletonLinkSessionState *state_ref, bool is_playing, uint64_t time)
+{
+    ableton::Link::SessionState *state = reinterpret_cast<ableton::Link::SessionState*>(state_ref);
+    state->setIsPlaying(is_playing, std::chrono::microseconds(time));
+}
+
+bool
+ableton_link_session_state_is_playing(AbletonLinkSessionState *state_ref)
+{
+    ableton::Link::SessionState *state = reinterpret_cast<ableton::Link::SessionState*>(state_ref);
+    return state->isPlaying();
+}
+
+void
 ableton_link_session_state_destroy(AbletonLinkSessionState *state_ref)
 {
     ableton::Link::SessionState *state = reinterpret_cast<ableton::Link::SessionState*>(state_ref);
