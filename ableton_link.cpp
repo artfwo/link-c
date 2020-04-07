@@ -16,6 +16,20 @@ ableton_link_enable(AbletonLink *link_ref, bool enable)
     link->enable(enable);
 }
 
+bool
+ableton_link_is_start_stop_sync_enabled(AbletonLink *link_ref)
+{
+    ableton::Link *link = reinterpret_cast<ableton::Link*>(link_ref);
+    return link->isStartStopSyncEnabled();
+}
+
+void
+ableton_link_enable_start_stop_sync(AbletonLink *link_ref, bool enable)
+{
+    ableton::Link *link = reinterpret_cast<ableton::Link*>(link_ref);
+    link->enableStartStopSync(enable);
+}
+
 AbletonLinkClock *
 ableton_link_clock(AbletonLink *link_ref)
 {

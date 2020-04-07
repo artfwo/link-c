@@ -10,6 +10,8 @@ typedef struct _AbletonLinkSessionState AbletonLinkSessionState;
 
 AbletonLink *ableton_link_new(double bpm);
 void ableton_link_enable(AbletonLink *link_ref, bool enable);
+bool ableton_link_is_start_stop_sync_enabled(AbletonLink *link_ref);
+void ableton_link_enable_start_stop_sync(AbletonLink *link_ref, bool enable);
 AbletonLinkClock *ableton_link_clock(AbletonLink *link_ref);
 AbletonLinkSessionState *ableton_link_capture_audio_session_state(AbletonLink *link_ref);
 void ableton_link_commit_audio_session_state(AbletonLink *link_ref, AbletonLinkSessionState *state_ref);
