@@ -115,6 +115,13 @@ ableton_link_session_state_is_playing(AbletonLinkSessionState *state_ref)
 }
 
 void
+ableton_link_session_state_request_beat_at_start_playing_time(AbletonLinkSessionState *state_ref, double beat, double quantum)
+{
+    ableton::Link::SessionState *state = reinterpret_cast<ableton::Link::SessionState*>(state_ref);
+    state->requestBeatAtStartPlayingTime(beat, quantum);
+}
+
+void
 ableton_link_session_state_destroy(AbletonLinkSessionState *state_ref)
 {
     ableton::Link::SessionState *state = reinterpret_cast<ableton::Link::SessionState*>(state_ref);
