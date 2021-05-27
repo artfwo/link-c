@@ -16,6 +16,7 @@ AbletonLinkClock *ableton_link_clock(AbletonLink *link_ref);
 AbletonLinkSessionState *ableton_link_capture_audio_session_state(AbletonLink *link_ref);
 void ableton_link_commit_audio_session_state(AbletonLink *link_ref, AbletonLinkSessionState *state_ref);
 AbletonLinkSessionState *ableton_link_capture_app_session_state(AbletonLink *link_ref);
+void ableton_link_commit_app_session_state(AbletonLink *link_ref, AbletonLinkSessionState *state_ref);
 void ableton_link_destroy(AbletonLink *link_ref);
 
 uint64_t ableton_link_clock_micros(AbletonLinkClock *clock_ref);

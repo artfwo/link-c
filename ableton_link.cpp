@@ -66,6 +66,14 @@ ableton_link_capture_app_session_state(AbletonLink *link_ref)
 }
 
 void
+ableton_link_commit_app_session_state(AbletonLink *link_ref, AbletonLinkSessionState *state_ref)
+{
+    ableton::Link *link = reinterpret_cast<ableton::Link*>(link_ref);
+    ableton::Link::SessionState *state = reinterpret_cast<ableton::Link::SessionState*>(state_ref);
+    link->commitAppSessionState(*state);
+}
+
+void
 ableton_link_destroy(AbletonLink *link_ref)
 {
     ableton::Link *link = reinterpret_cast<ableton::Link*>(link_ref);
